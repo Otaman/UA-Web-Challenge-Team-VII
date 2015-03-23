@@ -8,6 +8,7 @@ import static javax.persistence.GenerationType.AUTO;
 
 /**
  * The volunteer program
+ *
  * @author Bohdan Vanchuhov
  */
 @Entity
@@ -56,10 +57,12 @@ public class VolunteerProgram {
         this.subject = subject;
     }
 
-    @ElementCollection(targetClass = AssistanceType.class)
+    @ElementCollection(targetClass = AssistanceType.class, fetch = LAZY)
     @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "assistance_types")
-    @Column(name = "name")
+    @CollectionTable(
+            name = "assistance_types",
+            joinColumns = @JoinColumn(name = "program_id"))
+    @Column(name = "name", length = 30)
     public List<AssistanceType> getAssistanceTypes() {
         return assistanceTypes;
     }
@@ -68,7 +71,7 @@ public class VolunteerProgram {
         this.assistanceTypes = assistanceTypes;
     }
 
-    @OneToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "program_locations",
             joinColumns = @JoinColumn(name = "program_id"),
             inverseJoinColumns = @JoinColumn(name = "location_id"))
