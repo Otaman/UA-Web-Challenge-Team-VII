@@ -14,6 +14,7 @@
     <mvc:resources location="/WEB-INF/static/js/" mapping="/js/**"/>
     <mvc:resources location="/WEB-INF/static/css/" mapping="/css/**"/>
     <mvc:resources location="/WEB-INF/static/img/" mapping="/img/**"/>
+    <mvc:resources location="/WEB-INF/static/fonts/" mapping="/fonts/**"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>

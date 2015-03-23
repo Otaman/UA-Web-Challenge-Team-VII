@@ -12,11 +12,15 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * @author Bohdan Vanchuhov
  */
 @Controller
-@RequestMapping("/hello")
 public class HelloController {
-    @RequestMapping(method = GET)
+    @RequestMapping(value = "/hello", method = GET)
     public String hello(Model model) {
         model.addAttribute("message", "hello");
         return "hello";
+    }
+
+    @RequestMapping(value = "/", method = GET)
+    public String forwardToMain() {
+        return "forward:/static/main.html";
     }
 }
