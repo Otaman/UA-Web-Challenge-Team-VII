@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <subjects name="Education"/>
+    <subjects name="Childcare"/>
+    <subjects name="Sport"/>
+    <subjects name="Healthcare"/>
+    <subjects name="Community"/>
+</dataset>

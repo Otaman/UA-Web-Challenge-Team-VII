@@ -1,5 +1,7 @@
 package ua.web_challenge.volunteer.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
@@ -13,6 +15,8 @@ import static javax.persistence.GenerationType.AUTO;
 @Table(name = "subjects")
 public class Subject {
     private int id;
+
+    @NotEmpty
     private String name;
 
     public Subject() {
