@@ -5,6 +5,7 @@ import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * The volunteer program
@@ -27,7 +28,7 @@ public class VolunteerProgram {
     //----- Getters and Setters -----
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;

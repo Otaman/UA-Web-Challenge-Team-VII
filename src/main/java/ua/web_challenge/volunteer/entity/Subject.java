@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * The subject of volunteer programs
@@ -25,7 +26,7 @@ public class Subject {
     //----- Getters and Setters -----
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;

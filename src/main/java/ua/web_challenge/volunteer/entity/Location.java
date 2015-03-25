@@ -3,6 +3,7 @@ package ua.web_challenge.volunteer.entity;
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * The location of volunteer programs
@@ -21,7 +22,7 @@ public class Location {
     //----- Getters and Setters -----
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;

@@ -5,10 +5,12 @@ import java.util.Date;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.IDENTITY;
 import static javax.persistence.TemporalType.TIMESTAMP;
 
 /**
  * The news about volunteer programs
+ *
  * @author Bohdan Vanchuhov
  */
 @Entity
@@ -25,7 +27,7 @@ public class VolunteerNews {
     //----- Getters and Setters -----
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
