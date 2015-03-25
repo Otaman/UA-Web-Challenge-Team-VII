@@ -63,7 +63,7 @@ public class VolunteerProgram {
     @CollectionTable(
             name = "assistance_types",
             joinColumns = @JoinColumn(name = "program_id"))
-    @Column(name = "name", length = 30)
+    @Column(name = "assistance_type", length = 30)
     public List<AssistanceType> getAssistanceTypes() {
         return assistanceTypes;
     }
