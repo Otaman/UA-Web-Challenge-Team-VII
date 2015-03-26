@@ -3,6 +3,7 @@ package ua.web_challenge.volunteer.entity;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -58,12 +59,12 @@ public class VolunteerProgram {
         this.subject = subject;
     }
 
-    @ElementCollection(targetClass = AssistanceType.class, fetch = LAZY)
+    @ElementCollection(targetClass = AssistanceType.class, fetch = EAGER)
     @Enumerated(EnumType.STRING)
     @CollectionTable(
             name = "assistance_types",
             joinColumns = @JoinColumn(name = "program_id"))
-    @Column(name = "name", length = 30)
+    @Column(name = "assistance_type", length = 30)
     public List<AssistanceType> getAssistanceTypes() {
         return assistanceTypes;
     }

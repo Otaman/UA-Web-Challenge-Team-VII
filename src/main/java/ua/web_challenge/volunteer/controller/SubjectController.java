@@ -30,7 +30,8 @@ public class SubjectController {
     }
 
     @RequestMapping(value = "/{id}", method = GET, headers = "Accept=application/json")
-    public @ResponseBody Subject getSubject(@PathVariable("id") int id) {
+    @ResponseBody
+    public Subject getSubject(@PathVariable("id") int id) {
         Subject subject = subjectDao.findById(id);
 
         checkSubject(subject);
@@ -58,8 +59,9 @@ public class SubjectController {
 
     @RequestMapping(method = POST, headers = "Content-Type=application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody Subject createSubject(@Valid @RequestBody Subject subject,
-                                               BindingResult bindingResult, HttpServletResponse response)
+    @ResponseBody
+    public Subject createSubject(@Valid @RequestBody Subject subject,
+                          BindingResult bindingResult, HttpServletResponse response)
             throws BindException {
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);

@@ -5,6 +5,7 @@
 
     <display-name>Volunteer Programs</display-name>
 
+    <!-- Spring Context Listener -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -16,18 +17,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!--==============================================-->
-    <filter>
-        <filter-name>http-head-filter</filter-name>
-        <filter-class>ua.web_challenge.volunteer.filter.HttpHeadFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>http-head-filter</filter-name>
-        <servlet-name>dispatcher-servlet</servlet-name>
-    </filter-mapping>
-    <!--==============================================-->
-
+    <!-- Spring Dispatcher Servlet -->
     <servlet>
         <servlet-name>dispatcher-servlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -37,9 +27,28 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>dispatcher-servlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- HTTP HEAD filter -->
+    <filter>
+        <filter-name>http-head-filter</filter-name>
+        <filter-class>ua.web_challenge.volunteer.filter.HttpHeadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>http-head-filter</filter-name>
+        <servlet-name>dispatcher-servlet</servlet-name>
+    </filter-mapping>
+
+    <!-- Spring Security -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
