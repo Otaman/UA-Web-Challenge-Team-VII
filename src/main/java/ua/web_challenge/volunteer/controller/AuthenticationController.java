@@ -49,6 +49,11 @@ public class AuthenticationController {
     public String forwardToRegistration() {
         return "forward:/static/registration.html";
     }
+
+    @RequestMapping(value = "/restore", method = GET)
+    public String forwardToRestore() {
+        return "forward:/static/restore.html";
+    }
     /*@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(@RequestParam(value = "error", required = false) String error,
                               @RequestParam(value = "logout", required = false) String logout,
