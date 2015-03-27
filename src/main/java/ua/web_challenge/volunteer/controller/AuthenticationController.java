@@ -41,8 +41,13 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/login", method = GET)
-    public String forwardToMain() {
+    public String forwardToLogin() {
         return "forward:/static/login.html";
+    }
+
+    @RequestMapping(value = "/registration", method = GET)
+    public String forwardToRegistration() {
+        return "forward:/static/registration.html";
     }
     /*@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(@RequestParam(value = "error", required = false) String error,
