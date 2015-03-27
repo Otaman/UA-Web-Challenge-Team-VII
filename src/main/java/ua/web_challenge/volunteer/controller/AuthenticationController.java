@@ -40,7 +40,11 @@ public class AuthenticationController {
         return "admin";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = GET)
+    public String forwardToMain() {
+        return "forward:/static/login.html";
+    }
+    /*@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(@RequestParam(value = "error", required = false) String error,
                               @RequestParam(value = "logout", required = false) String logout,
                               HttpServletRequest request,
@@ -54,7 +58,7 @@ public class AuthenticationController {
         }
 
         return "login";
-    }
+    }*/
 
     private String getErrorMessage(HttpServletRequest request, String key) {
         Exception exception = (Exception) request.getSession().getAttribute(key);
