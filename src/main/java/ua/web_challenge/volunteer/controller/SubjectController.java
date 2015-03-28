@@ -19,7 +19,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
  *
  * @author Bohdan Vanchuhov
  */
-@Controller
+@RestController
 @RequestMapping("/subjects")
 public class SubjectController {
     private SubjectDao subjectDao;
@@ -30,7 +30,6 @@ public class SubjectController {
     }
 
     @RequestMapping(value = "/{id}", method = GET, headers = "Accept=application/json")
-    @ResponseBody
     public Subject getSubject(@PathVariable("id") int id) {
         Subject subject = subjectDao.findById(id);
 
@@ -59,7 +58,6 @@ public class SubjectController {
 
     @RequestMapping(method = POST, headers = "Content-Type=application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
     public Subject createSubject(@Valid @RequestBody Subject subject,
                           BindingResult bindingResult, HttpServletResponse response)
             throws BindException {
