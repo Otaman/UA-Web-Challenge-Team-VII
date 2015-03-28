@@ -40,7 +40,6 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
         DirtiesContextTestExecutionListener.class,
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("/datasets/subject/subject-data.xml")
-@DatabaseSetup("/datasets/subject/subject-data.xml")
 public class SubjectControllerTest {
     private MockMvc mockMvc;
 

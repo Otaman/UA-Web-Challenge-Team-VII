@@ -1,8 +1,10 @@
 package ua.web_challenge.volunteer.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -24,14 +26,23 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class User {
     private int id;
 
-    @Pattern(regexp = " ^[a-z0-9_-]{3,15}$")
+    @NotNull
+    @Pattern(regexp = "^[a-zA-Z0-9_-]{3,15}$")
     private String username;
 
+    @NotNull
     private String password;
+
+    @NotNull
+    private boolean accountEnabled;
 
     private List<UserRole> userRoles;
 
     public User() {
+    }
+
+    public User(String username) {
+        this.username = username;
     }
 
     //----- Getters and Setters -----
@@ -58,7 +69,8 @@ public class User {
     }
 
     @Basic
-    @Column(name = "password", length = 128, nullable = false)
+    @Column(name = "password", length = 32, nullable = false)
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -79,5 +91,15 @@ public class User {
 
     public void setUserRoles(List<UserRole> userRoles) {
         this.userRoles = userRoles;
+    }
+
+    @Basic
+    @Column(name = "enabled")
+    public boolean isAccountEnabled() {
+        return accountEnabled;
+    }
+
+    public void setAccountEnabled(boolean accountEnabled) {
+        this.accountEnabled = accountEnabled;
     }
 }

@@ -11,13 +11,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import ua.web_challenge.volunteer.entity.User;
-import ua.web_challenge.volunteer.entity.UserRole;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
-import static ua.web_challenge.volunteer.entity.UserRole.ADMIN_ROLE;
-import static ua.web_challenge.volunteer.entity.UserRole.USER_ROLE;
+import static ua.web_challenge.volunteer.entity.UserRole.ROLE_ADMIN;
+import static ua.web_challenge.volunteer.entity.UserRole.ROLE_USER;
 
 /**
  * Created on 26.03.2015
@@ -33,7 +32,7 @@ import static ua.web_challenge.volunteer.entity.UserRole.USER_ROLE;
         DependencyInjectionTestExecutionListener.class,
         DirtiesContextTestExecutionListener.class,
         DbUnitTestExecutionListener.class})
-@DatabaseSetup("/datasets/user/user-data.xml")
+@DatabaseSetup("classpath:/datasets/user/user-data.xml")
 public class UserDaoTest {
     @Autowired
     private UserDao userDao;
@@ -43,6 +42,6 @@ public class UserDaoTest {
         User user = userDao.findById(1);
 
         assertThat(user.getUsername(), is("Bohdan"));
-        assertThat(user.getUserRoles(), is(contains(ADMIN_ROLE, USER_ROLE)));
+        assertThat(user.getUserRoles(), is(contains(ROLE_ADMIN, ROLE_USER)));
     }
 }

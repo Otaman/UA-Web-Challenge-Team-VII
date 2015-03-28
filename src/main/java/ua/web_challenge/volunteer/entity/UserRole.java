@@ -6,6 +6,6 @@ package ua.web_challenge.volunteer.entity;
  * @author Bohdan Vanchuhov
  */
 public enum UserRole {
-    ADMIN_ROLE,
-    USER_ROLE
+    ROLE_ADMIN,
+    ROLE_USER
 }
