@@ -20,6 +20,7 @@
         <mysql.connector.version>5.1.34</mysql.connector.version>
         <commons-dbcp.version>1.2.2</commons-dbcp.version>
         <fasterxml.jackson.version>2.4.3</fasterxml.jackson.version>
+        <lombok.version>1.16.2.0</lombok.version>
 
         <springtestdbunit.version>1.2.1</springtestdbunit.version>
         <junit.version>4.11</junit.version>
@@ -145,6 +146,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>${fasterxml.jackson.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-maven</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
 
         <!-- Test -->
         <dependency>
