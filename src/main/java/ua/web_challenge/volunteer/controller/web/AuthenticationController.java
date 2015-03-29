@@ -1,4 +1,4 @@
-package ua.web_challenge.volunteer.controller;
+package ua.web_challenge.volunteer.controller.web;
 
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.BadCredentialsException;

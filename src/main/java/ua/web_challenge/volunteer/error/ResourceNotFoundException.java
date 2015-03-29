@@ -1,4 +1,4 @@
-package ua.web_challenge.volunteer.controller;
+package ua.web_challenge.volunteer.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

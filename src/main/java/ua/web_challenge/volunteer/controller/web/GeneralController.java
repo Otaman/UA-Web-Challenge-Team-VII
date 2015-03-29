@@ -1,4 +1,4 @@
-package ua.web_challenge.volunteer.controller;
+package ua.web_challenge.volunteer.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,12 +1,12 @@
-package ua.web_challenge.volunteer.controller;
+package ua.web_challenge.volunteer.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ua.web_challenge.volunteer.entity.Subject;
+import ua.web_challenge.volunteer.error.ResourceNotFoundException;
 import ua.web_challenge.volunteer.persistence.SubjectDao;
 
 import javax.servlet.http.HttpServletResponse;
