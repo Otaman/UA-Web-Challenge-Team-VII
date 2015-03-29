@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <programs id="1"
+              name="New Free IT University"
+              subject_id="1"
+              description="Idea of establishing new Free IT University"/>
+
+    <program_locations program_id="1" location="Kyiv"/>
+    <program_locations program_id="1" location="Lviv"/>
+
+    <assistance_types program_id="1" assistance_type="CODE"/>
+    <assistance_types program_id="1" assistance_type="MATERIAL"/>
+</dataset>
