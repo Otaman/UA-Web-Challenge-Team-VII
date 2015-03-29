@@ -2,7 +2,7 @@ package ua.web_challenge.volunteer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.web_challenge.volunteer.transfer.UserDto;
+import ua.web_challenge.volunteer.transfer_object.UserDto;
 import ua.web_challenge.volunteer.entity.Email;
 import ua.web_challenge.volunteer.entity.User;
 import ua.web_challenge.volunteer.persistence.EmailDao;
