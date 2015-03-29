@@ -1,7 +1,8 @@
-package ua.web_challenge.volunteer.persistence;
+package ua.web_challenge.volunteer.persistence.impl;
 
 import org.springframework.stereotype.Repository;
 import ua.web_challenge.volunteer.entity.Subject;
+import ua.web_challenge.volunteer.persistence.SubjectDao;
 import ua.web_challenge.volunteer.persistence.generic.JpaGenericDaoImpl;
 
 /**
