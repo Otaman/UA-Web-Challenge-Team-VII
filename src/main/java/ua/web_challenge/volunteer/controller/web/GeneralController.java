@@ -16,4 +16,9 @@ public class GeneralController {
     public String forwardToApi() {
         return "forward:/static/api.html";
     }
+
+    @RequestMapping(value = "/", method = GET)
+    public String forwardToMain() {
+        return "forward:/static/main.html";
+    }
 }
