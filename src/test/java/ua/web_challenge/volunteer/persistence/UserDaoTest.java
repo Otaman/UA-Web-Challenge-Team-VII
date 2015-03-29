@@ -14,6 +14,7 @@ import ua.web_challenge.volunteer.entity.User;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static ua.web_challenge.volunteer.entity.UserRole.ROLE_ADMIN;
 import static ua.web_challenge.volunteer.entity.UserRole.ROLE_USER;
@@ -26,7 +27,7 @@ import static ua.web_challenge.volunteer.entity.UserRole.ROLE_USER;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({
         "file:src/main/webapp/WEB-INF/spring/persistence-context.xml",
-        "classpath:/spring/test-datasource-context.xml"
+        "classpath:/spring/test-mysql-db-properties.xml"
 })
 @TestExecutionListeners({
         DependencyInjectionTestExecutionListener.class,
@@ -42,6 +43,6 @@ public class UserDaoTest {
         User user = userDao.findById(1);
 
         assertThat(user.getUsername(), is("Bohdan"));
-        assertThat(user.getUserRoles(), is(contains(ROLE_ADMIN, ROLE_USER)));
+        assertThat(user.getUserRoles(), is(containsInAnyOrder(ROLE_ADMIN, ROLE_USER)));
     }
 }

@@ -3,7 +3,6 @@ package ua.web_challenge.volunteer.persistence;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
-import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ import static org.hamcrest.Matchers.is;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({
         "file:src/main/webapp/WEB-INF/spring/persistence-context.xml",
-        "classpath:/spring/test-datasource-context.xml"
+        "classpath:/spring/test-mysql-db-properties.xml"
 })
 @TestExecutionListeners({
         DependencyInjectionTestExecutionListener.class,
