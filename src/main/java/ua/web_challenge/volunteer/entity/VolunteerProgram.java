@@ -1,6 +1,10 @@
 package ua.web_challenge.volunteer.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.FetchType.EAGER;
@@ -19,11 +23,18 @@ public class VolunteerProgram {
     private int id;
     private String name;
     private Subject subject;
-    private List<AssistanceType> assistanceTypes;
-    private List<Location> locations;
+
+    @JsonProperty("assistance_type")
+    private List<AssistanceType> assistanceTypes = new ArrayList<>();
+
+    private List<String> locations = new ArrayList<>();
     private String description;
 
     public VolunteerProgram() {
+    }
+
+    public VolunteerProgram(String name) {
+        this.name = name;
     }
 
     //----- Getters and Setters -----
@@ -73,16 +84,26 @@ public class VolunteerProgram {
         this.assistanceTypes = assistanceTypes;
     }
 
-    @ManyToMany(fetch = LAZY)
-    @JoinTable(name = "program_locations",
-            joinColumns = @JoinColumn(name = "program_id"),
-            inverseJoinColumns = @JoinColumn(name = "location_id"))
-    public List<Location> getLocations() {
+    public void addAssistanceType(AssistanceType assistanceType) {
+        assistanceTypes.add(assistanceType);
+    }
+
+    @ElementCollection(targetClass = String.class, fetch = EAGER)
+    @CollectionTable(
+            name = "program_locations",
+            joinColumns = @JoinColumn(name = "program_id")
+    )
+    @Column(name = "location", length = 50, nullable = false)
+    public List<String> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(List<String> locations) {
         this.locations = locations;
+    }
+
+    public void addLocation(String location) {
+        locations.add(location);
     }
 
     @Basic(fetch = LAZY)
