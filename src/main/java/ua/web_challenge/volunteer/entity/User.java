@@ -1,11 +1,13 @@
 package ua.web_challenge.volunteer.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.FetchType.EAGER;
@@ -30,13 +32,15 @@ public class User {
     @Pattern(regexp = "^[a-zA-Z0-9_-]{3,15}$")
     private String username;
 
-    @NotNull
+    @NotEmpty
     private String password;
 
-    @NotNull
-    private boolean accountEnabled;
+    private boolean accountEnabled = false;
 
-    private List<UserRole> userRoles;
+    @NotNull
+    private Email email;
+
+    private List<UserRole> userRoles = new ArrayList<>();
 
     public User() {
     }
@@ -79,6 +83,16 @@ public class User {
         this.password = password;
     }
 
+    @OneToOne
+    @JoinColumn(name = "email_id", nullable = false)
+    public Email getEmail() {
+        return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
     @ElementCollection(targetClass = UserRole.class, fetch = EAGER)
     @Enumerated(EnumType.STRING)
     @CollectionTable(
@@ -93,8 +107,13 @@ public class User {
         this.userRoles = userRoles;
     }
 
+    public void addUserRole(UserRole userRole) {
+        userRoles.add(userRole);
+    }
+
     @Basic
     @Column(name = "enabled")
+    @JsonGetter(value = "enabled")
     public boolean isAccountEnabled() {
         return accountEnabled;
     }
