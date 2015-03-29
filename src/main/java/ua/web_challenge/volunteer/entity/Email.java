@@ -1,5 +1,7 @@
 package ua.web_challenge.volunteer.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -19,6 +21,7 @@ public class Email {
     private int id;
 
     @org.hibernate.validator.constraints.Email
+    @JsonProperty("email")
     private String value;
 
     public Email() {
