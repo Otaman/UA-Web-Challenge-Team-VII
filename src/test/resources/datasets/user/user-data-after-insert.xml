@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <emails value="bodya.van@gmail.com"/>
+    <emails value="otaman963@gmail.com"/>
+
+    <users username="Bohdan" password="12345" enabled="true"/>
+    <users username="Serhiy" password="0000" enabled="false"/>
+
+    <user_roles user_role="ROLE_ADMIN"/>
+    <user_roles user_role="ROLE_USER"/>
+    <user_roles user_role="ROLE_USER"/>
+</dataset>

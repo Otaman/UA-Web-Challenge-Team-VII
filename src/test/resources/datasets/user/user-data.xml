@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <users id="1" username="Bohdan" password="12345" enabled="1"/>
+    <emails id="1" value="bodya.van@gmail.com"/>
+
+    <users id="1" username="Bohdan" password="12345" email_id="1" enabled="true"/>
 
     <user_roles user_id="1" user_role="ROLE_ADMIN"/>
     <user_roles user_id="1" user_role="ROLE_USER"/>
