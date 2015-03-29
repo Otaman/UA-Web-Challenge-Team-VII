@@ -3,8 +3,6 @@ package ua.web_challenge.volunteer.controller;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DatabaseSetups;
-import com.github.springtestdbunit.annotation.DatabaseTearDown;
-import com.github.springtestdbunit.annotation.DatabaseTearDowns;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +16,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
-import static com.github.springtestdbunit.assertion.DatabaseAssertionMode.NON_STRICT;
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
@@ -45,11 +39,10 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
         @DatabaseSetup("/datasets/program/program-data.xml")
 })
 public class VolunteerProgramControllerTest {
-    private MockMvc mockMvc;
-
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     protected WebApplicationContext wac;
+    private MockMvc mockMvc;
 
     @Before
     public void setUp() {

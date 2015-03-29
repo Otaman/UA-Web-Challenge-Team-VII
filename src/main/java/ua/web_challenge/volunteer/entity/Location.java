@@ -2,7 +2,6 @@ package ua.web_challenge.volunteer.entity;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**

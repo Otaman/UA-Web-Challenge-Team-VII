@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static ua.web_challenge.volunteer.controller.rest.HttpConstants.Header.ACCEPT_JSON;
+import static ua.web_challenge.volunteer.controller.rest.HttpConstants.Header.CONTENT_TYPE_JSON;
 
 /**
  * Created on 24.03.2015
@@ -29,7 +31,7 @@ public class SubjectController {
         this.subjectDao = subjectDao;
     }
 
-    @RequestMapping(value = "/{id}", method = GET, headers = "Accept=application/json")
+    @RequestMapping(value = "/{id}", method = GET, headers = ACCEPT_JSON)
     public Subject getSubject(@PathVariable("id") int id) {
         Subject subject = subjectDao.findById(id);
 
@@ -44,7 +46,7 @@ public class SubjectController {
         }
     }
 
-    @RequestMapping(value = "/{id}", method = PUT, headers = "Content-Type=application/json")
+    @RequestMapping(value = "/{id}", method = PUT, headers = CONTENT_TYPE_JSON)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateSubject(@PathVariable("id") int id, @Valid @RequestBody Subject subject) {
         subjectDao.update(subject);
@@ -56,7 +58,7 @@ public class SubjectController {
         subjectDao.delete(id);
     }
 
-    @RequestMapping(method = POST, headers = "Content-Type=application/json")
+    @RequestMapping(method = POST, headers = CONTENT_TYPE_JSON)
     @ResponseStatus(HttpStatus.CREATED)
     public Subject createSubject(@Valid @RequestBody Subject subject,
                           BindingResult bindingResult, HttpServletResponse response)

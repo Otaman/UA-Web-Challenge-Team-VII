@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 import static javax.persistence.TemporalType.TIMESTAMP;
 

@@ -2,19 +2,13 @@ package ua.web_challenge.volunteer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ua.web_challenge.volunteer.entity.User;
-import ua.web_challenge.volunteer.entity.UserRole;
 import ua.web_challenge.volunteer.persistence.UserDao;
 import ua.web_challenge.volunteer.security.VolunteerUserDetails;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created on 26.03.2015
@@ -23,10 +17,9 @@ import java.util.Set;
  */
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
+    private final AccountStatusUserDetailsChecker detailsChecker = new AccountStatusUserDetailsChecker();
     @Autowired
     private UserDao userDao;
-
-    private final AccountStatusUserDetailsChecker detailsChecker = new AccountStatusUserDetailsChecker();
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

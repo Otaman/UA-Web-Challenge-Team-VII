@@ -1,7 +1,8 @@
 package ua.web_challenge.volunteer.service;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.*;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,11 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
-import ua.web_challenge.volunteer.transfer_object.UserDto;
 import ua.web_challenge.volunteer.entity.User;
+import ua.web_challenge.volunteer.transfer_object.UserDto;
 
 import static com.github.springtestdbunit.assertion.DatabaseAssertionMode.NON_STRICT;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static ua.web_challenge.volunteer.entity.UserRole.ROLE_ADMIN;

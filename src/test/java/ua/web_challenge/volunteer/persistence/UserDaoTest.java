@@ -13,7 +13,6 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import ua.web_challenge.volunteer.entity.User;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static ua.web_challenge.volunteer.entity.UserRole.ROLE_ADMIN;

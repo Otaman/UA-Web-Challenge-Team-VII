@@ -3,17 +3,12 @@ package ua.web_challenge.volunteer.controller.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ua.web_challenge.volunteer.entity.Email;
 import ua.web_challenge.volunteer.entity.VolunteerProgram;
 import ua.web_challenge.volunteer.service.VolunteerProgramService;
-import ua.web_challenge.volunteer.transfer_object.VolunteerProgramList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.PATCH;
 import static ua.web_challenge.volunteer.controller.rest.HttpConstants.Header.CONTENT_TYPE_JSON;
 
 /**

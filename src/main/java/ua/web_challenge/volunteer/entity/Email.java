@@ -1,14 +1,10 @@
 package ua.web_challenge.volunteer.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
-import static javax.persistence.GenerationType.IDENTITY;
-import static javax.persistence.GenerationType.SEQUENCE;
 
 /**
  * Created on 29.03.2015
