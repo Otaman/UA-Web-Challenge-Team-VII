@@ -4,8 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="file:src/main/webapp/WEB-INF/spring/dispatcher-servlet.xml"/>
-    <import resource="file:src/main/webapp/WEB-INF/spring/persistence-context.xml"/>
+    <import resource="file:src/main/webapp/WEB-INF/spring/service-context.xml"/>
     <import resource="file:src/main/webapp/WEB-INF/spring/security-context.xml"/>
-    <import resource="test-datasource-context.xml"/>
+
+    <!-- Persistence -->
+    <import resource="file:src/main/webapp/WEB-INF/spring/persistence-context.xml"/>
+    <import resource="test-mysql-db-properties.xml"/>
+    <!--<import resource="test-hsql-db-properties.xml"/>-->
 
 </beans>
